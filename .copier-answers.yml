@@ -1,0 +1,9 @@
+# Changes here will be overwritten by Copier. Do not edit manually.
+_commit: v0.2.18
+_src_path: gh:jlevy/simple-modern-uv
+package_author_email: marcsusagna@gmail.com
+package_author_name: Marc Susagna
+package_description: Template to create python app managed with UV
+package_github_org: marcsusagna
+package_module: example_app
+package_name: uv_template
