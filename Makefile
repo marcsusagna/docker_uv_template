@@ -29,4 +29,5 @@ clean:
 	-rm -rf .pytest_cache/
 	-rm -rf .mypy_cache/
 	-rm -rf .venv/
+	-rm -rf .client/
 	-find . -type d -name "__pycache__" -exec rm -rf {} +

@@ -3,8 +3,10 @@
 ## Setting Up uv
 
 This project is set up to use [uv](https://docs.astral.sh/uv/) to manage Python and
-dependencies. First, be sure you
-[have uv installed](https://docs.astral.sh/uv/getting-started/installation/).
+dependencies. 
+
+First, be sure you
+[have uv installed](https://docs.astral.sh/uv/getting-started/installation/) using pipx, i.e. as a global tool
 
 ## Basic Developer Workflows
 
@@ -58,4 +60,11 @@ uv add package_name@latest
 # Run a shell within the Python environment:
 uv venv
 source .venv/bin/activate
+
+# Try out the app as a fresh environment using it
+uv venv .client
+source .client/bin/activate
+make build
+uv pip install dist/uv_template-0.0.1-py3-none-any.whl
+example_app
 ```
