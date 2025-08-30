@@ -34,6 +34,9 @@ dev = [
 [project.scripts]
 example_app = "example_app:main"
 
+[tool.uv]
+package = true
+
 
 # ---- Settings ----
 

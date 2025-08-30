@@ -60,11 +60,4 @@ uv add package_name@latest
 # Run a shell within the Python environment:
 uv venv
 source .venv/bin/activate
-
-# Try out the app as a fresh environment using it
-uv venv .client
-source .client/bin/activate
-make build
-uv pip install dist/uv_template-0.0.1-py3-none-any.whl
-example_app
 ```
