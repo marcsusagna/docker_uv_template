@@ -4,15 +4,17 @@ Please fill this README with information about your python app
 
 # Template information
 
-This repository has been copied from [uv_template](https://github.com/marcsusagna/uv_template) using [copier](https://copier.readthedocs.io/en/stable/), which is based on [simple-modern-uv](https://github.com/jlevy/simple-modern-uv)
+Compared to [simple-modern-uv](https://github.com/jlevy/simple-modern-uv) there are these othere differences:
 
-The added features are:
+Added features:
+- Development within docker container
+- Deployment of app into container
+- Integration with devcontainers extension in VS Code 
 - pre commit hooks
-- using pyright instead of basedpyright
-- developing the app within docker
+- using pyright instead of basedpyright. Intended to be used in VS Code
 - deploying the app, based on Astral's [UV in docker](https://github.com/astral-sh/uv-docker-example/blob/main/Dockerfile)
 
-Some items were removed:
+Some features were removed to simplify the template:
 - Integration with Github Actions
 - Publishing workflow
 - Agents

@@ -6,43 +6,36 @@ _subdirectory: template
 _message_after_copy: | 
     Your package template has been copied!
 
-    Remember to look for any unfilled `PLACEHOLDER` strings
-
     Next steps:
     
-    cd PROJECT
+    cd NEWREPONAME
     git init
     git add .
     git commit -m "Initial commit"
     # Create repo on GitHub.
-    git remote add origin https://github.com/OWNER/PROJECT.git
-    # Where OWNER is variable you entered: package_github_org
-    # PROJECT is folder you copied into / name of the repository
+    git remote add origin https://github.com/ORG/NEWREPONAME.git
+    # Where ORG is variable you entered: github_org
+    # NEWREPONAME is folder you copied into / name of the repository
     git branch -M main
     git push -u origin main
 
+github_org:
+    type: str
+    help: Github organization / username where the repo will be (i.e. https://github.com/ORG)
+
 package_name:
     type: str
-    help: What is the package name? This is the python package name
-    default: PLACEHOLDER
-
-package_github_org:
-    type: str
-    help: Package GitHub org or username?
-    default: PLACEHOLDER
+    help: Python package name. Accepts CamelCase, dash-case, or snake_case
 
 package_module:
     type: str
-    help: Package module name? (This is the Python module, so use snake_case)
-    default: PLACEHOLDER
+    help: Python package module. This is the Python module, so use snake_case
 
 package_author_name:
     type: str
-    help: Package author name?
-    default: PLACEHOLDER
+    help: Author of the package. Can be changed later in pyproject.toml
 
 package_author_email:
     type: str
-    help: Package author email?
-    default: PLACEHOLDER
+    help: Email of the author. Can be changed later in pyproject.toml
 
