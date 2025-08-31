@@ -2,13 +2,10 @@
 
 PROJECT_NAME=uv_template
 
-docker build -f devops/dockerfiles/Dockerfile.base -t example_app_base:local .
-docker build -f devops/dockerfiles/Dockerfile.dev -t example_app_dev:local .
-
 docker run --rm -it \
   -u appuser \
   -v $(pwd):/home/appuser/${PROJECT_NAME} \
   -v ~/.gitconfig:/home/appuser/.gitconfig:ro \
   -w /home/appuser/${PROJECT_NAME} \
   example_app_dev:local \
-  bash -c "uv sync --all-extras && exec bash"
+  bash -c "make install && exec bash"

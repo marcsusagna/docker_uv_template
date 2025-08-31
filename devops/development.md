@@ -1,35 +1,42 @@
-# Development
+# Section 1: Where to develop your application
 
-## Setting up your dev machine
+You have two options:
+1. Develop directly within your dev machine
+2. Develop within a Docker container
 
-### UV
+Developing within a Docker container has these pros:
+- Gives you the certainty and reproducibility about your dev setup, which can then be pushed into CI stages (environment is explicilty defined in your dockerfiles)
+- Avoids conflicts with other system packages you might have installed in your dev machine
+- Simpler setup as only docker is needed
 
-Check uv documentation [uv](https://docs.astral.sh/uv/) to understand how it works.
+In short, Docker container development ensure that you don't fall into the trap "but it worked on my machine!". 
 
-Follow its [installation guide](https://docs.astral.sh/uv/getting-started/installation/). We recommend installing it as a global tool with pipx. 
+Irrespective of which option, the common development workflows of your application are defined in Section 2
 
-### Pyright
+## Option 1: Developing within a Docker container
 
-If you want to use pyright, you'll need npm and nodejs. 
+### Prerequisites
+- Have docker installed and running
 
-For nodejs you'll need at least version 18, which might conflict with some old Ubuntu distributions. 
-Make sure you get, for instance version 20 with with:
+### Steps
+- Run `devops/scripts/build_docker_images.sh` to create all needed images
+- Run `devops/scripts/dev_app_in_docker.sh` to open a terminal in a docker container for development. Alternatively, you can use the devcontainer extension using the definition in `.devcontainer/devcontainer.json`
 
-```bash
-curl -fsSL https://deb.nodesource.com/setup_20.x | bash
-apt-get install -y nodejs
-```
+You can now develop your python application as explained in section 2. Note that git will be leveraging your `~/.gitconfig` file
 
-### pre-commit 
+## Option 2: Developing on your dev machine
 
-You'll need pre-commit to use the pre-commit hooks in `.pre-commig-config.yaml`. For linux
+### Prerequisites
 
-```bash
-apt-get install pre-commit
-``` 
+1. Have [uv](https://docs.astral.sh/uv/) installed. Follow its [installation guide](https://docs.astral.sh/uv/getting-started/installation/) it is recommended to install it as a global tool with pipx. 
+2. If you want pyright as type checker, you will need npm and nodejs. For nodejs you'll need at least version 18, which might conflict in some old Ubuntu distributions with pre-installed system packages.
+3. Install the system package `pre-commit` to be able to run lint, format and typing checks before every commit.
 
-Run pre-commit install
-### Copier
+If you are unsure how to install these dependencies, take a look at the files `devops/dockerfiles/Dockerfile.base` and `devops/dockerfiles/Dockerfile.dev` to understand what's needed explicitly
+
+# Section 2: Developing your python application with uv
+
+This section is inherited from [simple-modern-uv](https://github.com/jlevy/simple-modern-uv), with some additions and clean-ups. 
 
 ## Basic Developer Workflows
 
@@ -41,7 +48,7 @@ Find below set of instructions to manage project development with this template 
 
 ```shell
 # First, install all dependencies and set up your virtual environment.
-# This simply runs `uv sync --all-extras` to install all packages,
+# This simply runs `uv sync --all-extras` to install all packages as well as pre-commit hooks init
 # including dev dependencies and optional dependencies.
 make install
 

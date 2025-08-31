@@ -12,5 +12,5 @@
     "ms-python.python",
     "ms-python.vscode-pylance",
   ],
-  "postCreateCommand": "uv sync --all-extras && pre-commit install"
+  "postCreateCommand": "make install"
 }
