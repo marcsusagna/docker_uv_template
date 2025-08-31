@@ -1,0 +1,19 @@
+FROM example_app_base:local
+
+USER root
+
+# Install nodejs for pyright (part of lint dependencies)
+RUN curl -fsSL https://deb.nodesource.com/setup_"${NODE_MAJOR_VERSION}".x | bash \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get install -y \
+    git \
+    pre-commit \
+    && rm -rf /var/lib/apt/lists/*
+
+# Log back to user for final configuration
+USER appuser
+
+# Folder to have repository mounted
+RUN mkdir /home/appuser/${PROJECT_NAME}

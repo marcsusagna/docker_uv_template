@@ -16,10 +16,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     pipx
 
-# Install nodejs for pyright
-RUN curl -fsSL https://deb.nodesource.com/setup_"${NODE_MAJOR_VERSION}".x | bash \
-    && apt-get install -y nodejs
-
 # Create user to not run as root
 RUN useradd -ms /bin/bash appuser
 USER appuser
@@ -28,17 +24,3 @@ WORKDIR /home/appuser
 # UV installation as a global tool with pipx and add it to path
 RUN pipx install uv=="${UV_VERSION}"
 ENV PATH="/home/appuser/.local/bin:${PATH}"
-
-### Dev image: # Dev needs git, pre-commit, have access to file, as volume etc 
-# Log back into root for installation of DEV system packagse
-USER root
-RUN apt-get install -y \
-    git \
-    pre-commit \
-    && rm -rf /var/lib/apt/lists/*
-
-# Log back to user for final configuration
-USER appuser
-
-# Folder to have repository mounted
-RUN mkdir /home/appuser/${PROJECT_NAME}

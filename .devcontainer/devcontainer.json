@@ -1,6 +1,6 @@
 {
   "name": "Dev Container",
-  "dockerFile": "../devops/Dockerfile.base",
+  "dockerFile": "../devops/dockerfiles/Dockerfile.base",
   "context": "..",
   "remoteUser": "appuser",
   "workspaceFolder": "/home/appuser/uv_template",
