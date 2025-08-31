@@ -20,6 +20,14 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | bash
 apt-get install -y nodejs
 ```
 
+### pre-commit 
+
+You'll need pre-commit to use the pre-commit hooks in `.pre-commig-config.yaml`. For linux
+
+```bash
+apt-get install pre-commit
+```
+
 ### Copier
 
 ## Basic Developer Workflows
