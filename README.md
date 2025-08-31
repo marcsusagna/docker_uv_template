@@ -34,3 +34,4 @@ uv tool install copier
 copier copy gh:marcsusagna/docker_uv_template PLACEHOLDER
 ```
 4. Follow the instructions after running copier, which can be seen in the file `copier.yml` of this repository
+5. Once instantiated, follow the instructions in the generated README to understand how to develop and deploy your application
