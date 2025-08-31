@@ -26,8 +26,9 @@ You'll need pre-commit to use the pre-commit hooks in `.pre-commig-config.yaml`.
 
 ```bash
 apt-get install pre-commit
-```
+``` 
 
+Run pre-commit install
 ### Copier
 
 ## Basic Developer Workflows
