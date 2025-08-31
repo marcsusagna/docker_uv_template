@@ -3,7 +3,7 @@
 ARG UBUNTU_VERSION="22.04"
 FROM ubuntu:${UBUNTU_VERSION}
 
-ARG PROJECT_NAME=uv_template
+ARG PROJECT_NAME={{ package_name }}
 
 ARG DEBIAN_FRONTEND=noninteractive
 

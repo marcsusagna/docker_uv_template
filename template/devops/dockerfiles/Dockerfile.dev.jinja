@@ -1,6 +1,6 @@
-FROM example_app_base:local
+FROM {{ package_name }}_base:local
 
-ARG PROJECT_NAME=uv_template
+ARG PROJECT_NAME={{ package_name }}
 
 # Version pinning
 ARG NODE_MAJOR_VERSION="20"

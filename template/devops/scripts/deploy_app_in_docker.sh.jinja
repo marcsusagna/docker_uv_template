@@ -1,8 +1,8 @@
 #!/bin/bash
 
-PROJECT_NAME=uv_template
+PROJECT_NAME={{ package_name }}
 
 docker run --rm -it \
   -u appuser \
   -w /home/appuser/${PROJECT_NAME} \
-  example_app_deploy:local
+  ${PROJECT_NAME}_deploy:local
