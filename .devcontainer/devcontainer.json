@@ -1,0 +1,16 @@
+{
+  "name": "Dev Container",
+  "dockerFile": "../devops/Dockerfile.base",
+  "context": "..",
+  "remoteUser": "appuser",
+  "workspaceFolder": "/home/appuser/uv_template",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/home/appuser/uv_template,type=bind,consistency=cached",
+    "source=${env:HOME}/.gitconfig,target=/home/appuser/.gitconfig,type=bind,consistency=cached,readonly"
+  ],
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+  ],
+  "postCreateCommand": "pre-commit install"
+}
