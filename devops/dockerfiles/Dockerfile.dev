@@ -1,0 +1,26 @@
+FROM example_app_base:local
+
+ARG PROJECT_NAME=uv_template
+
+# Version pinning
+ARG NODE_MAJOR_VERSION="20"
+
+USER root
+
+# Copy from the cache instead of linking since we'll use a mounted volume
+ENV UV_LINK_MODE=copy
+
+# Install nodejs for pyright (part of lint dependencies)
+RUN curl -fsSL https://deb.nodesource.com/setup_"${NODE_MAJOR_VERSION}".x | bash \
+    && apt-get install -y nodejs
+
+RUN apt-get install -y \
+    git \
+    pre-commit \
+    && rm -rf /var/lib/apt/lists/*
+
+# Log back to user for final configuration
+USER appuser
+
+# Folder to have repository mounted
+RUN mkdir /home/appuser/${PROJECT_NAME}

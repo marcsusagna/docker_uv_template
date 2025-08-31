@@ -1,0 +1,25 @@
+# Base image with common dependencies between dev and deployed dockerfile
+
+ARG UBUNTU_VERSION="22.04"
+FROM ubuntu:${UBUNTU_VERSION}
+
+ARG PROJECT_NAME=uv_template
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Version pinning
+ARG UV_VERSION="0.8.14"
+
+# Install needed system packages as root
+RUN apt-get update && apt-get install -y \
+    curl \
+    pipx
+
+# Create user to not run as root
+RUN useradd -ms /bin/bash appuser
+USER appuser
+WORKDIR /home/appuser
+
+# UV installation as a global tool with pipx and add it to path
+RUN pipx install uv=="${UV_VERSION}"
+ENV PATH="/home/appuser/.local/bin:${PATH}"

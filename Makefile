@@ -10,6 +10,7 @@ default: install lint test
 
 install:
 	uv sync --all-extras
+	pre-commit install
 
 lint:
 	uv run python devops/scripts/lint.py
