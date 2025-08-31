@@ -2,8 +2,8 @@
 
 PROJECT_NAME=uv_template
 
-docker build -f devops/Dockerfile.base -t example_app_base:local .
-docker build -f devops/Dockerfile.deploy -t example_app_deploy:local .
+docker build -f devops/dockerfiles/Dockerfile.base -t example_app_base:local .
+docker build -f devops/dockerfiles/Dockerfile.deploy -t example_app_deploy:local .
 
 docker run --rm -it \
   -u appuser \

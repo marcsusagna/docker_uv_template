@@ -11,4 +11,4 @@ docker run --rm -it \
   -v ~/.gitconfig:/home/appuser/.gitconfig:ro \
   -w /home/appuser/${PROJECT_NAME} \
   example_app_dev:local \
-  uv sync --all-extras
+  bash -c "uv sync --all-extras && exec bash"

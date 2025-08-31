@@ -8,7 +8,6 @@ ARG PROJECT_NAME=uv_template
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Version pinning
-ARG NODE_MAJOR_VERSION="20"
 ARG UV_VERSION="0.8.14"
 
 # Install needed system packages as root

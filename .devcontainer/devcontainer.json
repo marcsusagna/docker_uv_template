@@ -1,6 +1,6 @@
 {
   "name": "Dev Container",
-  "dockerFile": "../devops/dockerfiles/Dockerfile.base",
+  "dockerFile": "../devops/dockerfiles/Dockerfile.dev",
   "context": "..",
   "remoteUser": "appuser",
   "workspaceFolder": "/home/appuser/uv_template",
@@ -12,5 +12,5 @@
     "ms-python.python",
     "ms-python.vscode-pylance",
   ],
-  "postCreateCommand": "pre-commit install"
+  "postCreateCommand": "uv sync --all-extras && pre-commit install"
 }
