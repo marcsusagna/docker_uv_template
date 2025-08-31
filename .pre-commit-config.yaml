@@ -1,0 +1,7 @@
+repos:
+  - repo: local
+    hooks:
+      - id: custom_lint
+        name: Run custom lint, formatters and type checker
+        entry: make lint
+        language: python
