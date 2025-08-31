@@ -16,12 +16,19 @@ _message_after_copy: |
     git commit -m "Initial commit"
     # Create repo on GitHub.
     git remote add origin https://github.com/OWNER/PROJECT.git
+    # Where OWNER is variable you entered: package_github_org
+    # PROJECT is folder you copied into / name of the repository
     git branch -M main
     git push -u origin main
 
 package_name:
     type: str
-    help: What is the package name? This is the Github repo and python package name
+    help: What is the package name? This is the python package name
+    default: PLACEHOLDER
+
+package_github_org:
+    type: str
+    help: Package GitHub org or username?
     default: PLACEHOLDER
 
 package_module:
@@ -39,7 +46,3 @@ package_author_email:
     help: Package author email?
     default: PLACEHOLDER
 
-package_github_org:
-    type: str
-    help: Package GitHub org or username?
-    default: PLACEHOLDER
