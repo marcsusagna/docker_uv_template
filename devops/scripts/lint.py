@@ -17,7 +17,7 @@ def main():
     errcount = 0
     errcount += run(["ruff", "check", "--fix", *SRC_PATHS])
     errcount += run(["ruff", "format", *SRC_PATHS])
-    # errcount += run(["basedpyright", "--stats", *SRC_PATHS])
+    errcount += run(["pyright", "--stats", *SRC_PATHS])
 
     rprint()
 

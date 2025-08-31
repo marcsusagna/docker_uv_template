@@ -82,17 +82,12 @@ ignore = [
 ]
 
 [tool.pyright]
-include = ["src", "tests", "devops"]
-
-# First, these turn off warnings about (yes) how you ignore warnings:
-reportIgnoreCommentWithoutRule = false
-reportUnnecessaryTypeIgnoreComment = false
+typeCheckingMode = "strict"
+reportUntypedFunction = true
+reportUntypedFunctionDecorator = true
 reportMissingTypeStubs = false
-reportUnusedCallResult = false
-reportAny = false
-reportExplicitAny = false
-reportImplicitStringConcatenation = false
-reportUnreachable = false
+reportUntypedClass = true
+reportUntypedBaseClass = true
 
 [tool.pytest.ini_options]
 python_files = ["*.py"]

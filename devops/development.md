@@ -1,17 +1,34 @@
 # Development
 
-## Setting Up uv
+## Setting up your dev machine
 
-This project is set up to use [uv](https://docs.astral.sh/uv/) to manage Python and
-dependencies. 
+### UV
 
-First, be sure you
-[have uv installed](https://docs.astral.sh/uv/getting-started/installation/) using pipx, i.e. as a global tool
+Check uv documentation [uv](https://docs.astral.sh/uv/) to understand how it works.
+
+Follow its [installation guide](https://docs.astral.sh/uv/getting-started/installation/). We recommend installing it as a global tool with pipx. 
+
+### Pyright
+
+If you want to use pyright, you'll need npm and nodejs. 
+
+For nodejs you'll need at least version 18, which might conflict with some old Ubuntu distributions. 
+Make sure you get, for instance version 20 with with:
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash
+apt-get install -y nodejs
+```
+
+### Copier
 
 ## Basic Developer Workflows
 
 The `Makefile` simply offers shortcuts to `uv` commands for developer convenience.
-(For clarity, GitHub Actions don't use the Makefile and just call `uv` directly.)
+
+Make shortcuts are intended for local development, your CI pipelines should directly use the `uv` commands.
+
+Find below set of instructions to manage project development with this template of uv
 
 ```shell
 # First, install all dependencies and set up your virtual environment.
