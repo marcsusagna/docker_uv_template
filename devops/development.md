@@ -19,8 +19,8 @@ Irrespective of which option, the common development workflows of your applicati
 - Have docker installed and running
 
 ### Steps
-- Run `devops/scripts/build_docker_images.sh` script to create all needed images
-- Run `devops/scripts/dev_app_in_docker.sh` script to open a terminal in a docker container for development. Alternatively, you can use the devcontainer extension using the definition in `.devcontainer/devcontainer.json`
+- Run `source devops/scripts/build_docker_images.sh` to create all needed images
+- Run `source devops/scripts/dev_app_in_docker.sh` to open a terminal in a docker container for development. Alternatively, you can use the devcontainer extension using the definition in `.devcontainer/devcontainer.json`
 
 You can now develop your python application as explained in section 2. Note that git will be leveraging your `~/.gitconfig` file
 
