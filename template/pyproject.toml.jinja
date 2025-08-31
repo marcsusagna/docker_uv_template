@@ -1,11 +1,11 @@
 # ---- Project Info and Dependencies ----
 
 [project.urls]
-Repository = "https://github.com/{{ package_github_org }}/{{ package_name }}"
+Repository = "https://github.com/{{ github_org }}/{{ repo_name }}"
 
 [project]
 name = "{{ package_name }}"
-description = "{{ package_description }}"
+description = ""
 authors = [
     { name="{{ package_author_name }}", email="{{ package_author_email }}" },
 ]
@@ -32,7 +32,7 @@ dev = [
 ]
 
 [project.scripts]
-{{ package_name }} = "{{ package_name }}:main"
+{{ package_name }} = "{{ package_module }}:main"
 
 [tool.uv]
 package = true

@@ -23,6 +23,10 @@ github_org:
     type: str
     help: Github organization / username where the repo will be (i.e. https://github.com/ORG)
 
+repo_name:
+    type: str
+    help: Name of the repository in github. Put the value NEWREPONAME you used when running copier copy
+
 package_name:
     type: str
     help: Python package name. Accepts CamelCase, dash-case, or snake_case
