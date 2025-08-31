@@ -1,5 +1,12 @@
 #!/bin/bash
-docker build -f devops/Dockerfile.dev -t example_app_dev:local .
+
+PROJECT_NAME=uv_template
+
+docker build -f devops/Dockerfile.base -t example_app_base:local .
 
 docker run --rm -it \
-  example_app_dev:local
+  -u appuser \
+  -v $(pwd):/home/appuser/${PROJECT_NAME} \
+  -v ~/.gitconfig:/home/appuser/.gitconfig:ro \
+  -w /home/appuser/${PROJECT_NAME} \
+  example_app_base:local
