@@ -9,4 +9,5 @@ docker run --rm -it \
   -v $(pwd):/home/appuser/${PROJECT_NAME} \
   -v ~/.gitconfig:/home/appuser/.gitconfig:ro \
   -w /home/appuser/${PROJECT_NAME} \
-  example_app_base:local
+  example_app_base:local 
+  bash -c "pre-commit install && bash"
