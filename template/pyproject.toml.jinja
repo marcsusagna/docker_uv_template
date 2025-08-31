@@ -1,13 +1,13 @@
 # ---- Project Info and Dependencies ----
 
 [project.urls]
-Repository = "https://github.com/marcsusagna/uv_template"
+Repository = "https://github.com/{{ package_github_org }}/{{ package_name }}"
 
 [project]
-name = "uv_template"
-description = "Template to create python app managed with UV"
+name = "{{ package_name }}"
+description = "{{ package_description }}"
 authors = [
-    { name="Marc Susagna", email="marcsusagna@gmail.com" },
+    { name="{{ package_author_name }}", email="{{ package_author_email }}" },
 ]
 readme = "README.md"
 requires-python = ">=3.11,<4.0"
@@ -32,7 +32,7 @@ dev = [
 ]
 
 [project.scripts]
-example_app = "example_app:main"
+{{ package_name }} = "{{ package_name }}:main"
 
 [tool.uv]
 package = true

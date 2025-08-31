@@ -1,0 +1,7 @@
+#!/bin/bash
+
+PROJECT_NAME={{ package_name }}
+
+docker build -f devops/dockerfiles/Dockerfile.base -t "${PROJECT_NAME}_base:local" .
+docker build -f devops/dockerfiles/Dockerfile.dev -t "${PROJECT_NAME}_dev:local" .
+docker build -f devops/dockerfiles/Dockerfile.deploy -t "${PROJECT_NAME}_deploy:local" .

@@ -1,0 +1,45 @@
+# Copier configuration 
+
+_min_copier_version: "9.4.0"
+_subdirectory: template
+
+_message_after_copy: | 
+    Your package template has been copied!
+
+    Remember to look for any unfilled `PLACEHOLDER` strings
+
+    Next steps:
+    
+    cd PROJECT
+    git init
+    git add .
+    git commit -m "Initial commit"
+    # Create repo on GitHub.
+    git remote add origin https://github.com/OWNER/PROJECT.git
+    git branch -M main
+    git push -u origin main
+
+package_name:
+    type: str
+    help: What is the package name? This is the Github repo and python package name
+    default: PLACEHOLDER
+
+package_module:
+    type: str
+    help: Package module name? (This is the Python module, so use snake_case)
+    default: PLACEHOLDER
+
+package_author_name:
+    type: str
+    help: Package author name?
+    default: PLACEHOLDER
+
+package_author_email:
+    type: str
+    help: Package author email?
+    default: PLACEHOLDER
+
+package_github_org:
+    type: str
+    help: Package GitHub org or username?
+    default: PLACEHOLDER

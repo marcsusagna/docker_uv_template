@@ -1,9 +1,9 @@
 # Inspired by https://github.com/astral-sh/uv-docker-example/blob/main/Dockerfile
 # Normally we would just deploy the wheel published during CI pipeline instead of moving all the repo
 
-FROM example_app_base:local
+FROM {{ package_name }}_base:local
 
-ARG PROJECT_NAME=uv_template
+ARG PROJECT_NAME={{ package_name }}
 
 # Log back to user for final configuration
 USER appuser
@@ -15,4 +15,4 @@ WORKDIR /home/appuser/${PROJECT_NAME}
 RUN uv sync --no-dev
 ENV PATH="/home/appuser/${PROJECT_NAME}/.venv/bin:$PATH"
 
-CMD ["example_app"]
+CMD ["{{ package_name }}"]

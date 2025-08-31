@@ -3,9 +3,9 @@
   "dockerFile": "../devops/dockerfiles/Dockerfile.dev",
   "context": "..",
   "remoteUser": "appuser",
-  "workspaceFolder": "/home/appuser/uv_template",
+  "workspaceFolder": "/home/appuser/{{ package_name }}",
   "mounts": [
-    "source=${localWorkspaceFolder},target=/home/appuser/uv_template,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder},target=/home/appuser/{{ package_name }},type=bind,consistency=cached",
     "source=${env:HOME}/.gitconfig,target=/home/appuser/.gitconfig,type=bind,consistency=cached,readonly"
   ],
   "extensions": [
